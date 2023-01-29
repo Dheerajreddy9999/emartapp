@@ -14,7 +14,7 @@ spec:
       labels:
         app: books
     spec:
-      restartPolicy: Always
+      restartPolicy: OnFailure
       containers:
       - name: books
         image: dheerajlearningdocker/emartapp-webapi
