@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: emartdb
+  labels:
+    app: emartdb
+spec:
+  selector:
+    matchLabels:
+      app: emartdb
+  serviceName: "emartdb"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: emartdb
+    spec:
+      containers:
+      - name: emartdb
+        image: mysql:5.7
+        env:
+          - name: MYSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: dbconfig
+                key: mysqldbname
+        env:
+           - name: MYSQL_ROOT_PASSWORD
+             valueFrom:
+               secretKeyRef:
+                 name: dbsecret
+                 key: mysqldb-pass
+
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 3Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emartdb
+spec:
+  selector:
+    app: emartdb
+  ports:
+  - port: 3306
+    targetPort: 3306
+  clusterIP: None
+
