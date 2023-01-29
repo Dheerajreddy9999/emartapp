@@ -21,9 +21,9 @@ spec:
         env:
           - name: MONGO_INITDB_DATABASE
             valueFrom:
-            configMapKeyRef:
-              name: dbconfig
-              key: mongodbname
+              configMapKeyRef:
+                name: dbconfig
+                key: mongodbname
         ports:
         - containerPort: 27017
         volumeMounts:
