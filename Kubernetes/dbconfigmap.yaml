@@ -4,3 +4,4 @@ metadata:
   name: dbconfig
 data:
   mysqldbname: books
+  mongodbname: epoc
