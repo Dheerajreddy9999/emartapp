@@ -13,10 +13,10 @@ spec:
       labels:
         app: nginx
     spec:
+      restartPolicy: Always
       containers:
       - name: nginx
         image: dheerajlearningdocker/emartapp-nginx
-        restartPolicy: Always
         ports:
         - containerPort: 80
 

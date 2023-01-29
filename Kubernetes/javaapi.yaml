@@ -14,10 +14,10 @@ spec:
       labels:
         app: books
     spec:
+      restartPolicy: Always
       containers:
       - name: books
         image: dheerajlearningdocker/emartapp-webapi
-        restartPolicy: Always
         ports:
         - containerPort: 9000
 
