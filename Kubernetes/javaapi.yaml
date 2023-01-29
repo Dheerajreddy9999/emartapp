@@ -17,6 +17,7 @@ spec:
       containers:
       - name: books
         image: dheerajlearningdocker/emartapp-webapi
+        restartPolicy: Always
         ports:
         - containerPort: 9000
 
