@@ -18,7 +18,7 @@ spec:
       - name: books
         image: dheerajlearningdocker/emartapp-webapi
         ports:
-        - containerPort: 8080
+        - containerPort: 9000
 
 ---
 apiVersion: v1
@@ -29,6 +29,6 @@ spec:
   selector:
     app: books
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 9000
+    targetPort: 9000
   type: ClusterIP
