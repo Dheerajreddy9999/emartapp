@@ -19,11 +19,6 @@ spec:
         image: dheerajlearningdocker/emartapp-webapi
         ports:
         - containerPort: 9000
-        env:
-         - name: MONGOURI
-           value: 'mongodb://emongo:27017/epoc'
-         - name: SECRETORKEY
-           value: 'k1234e6s78h9av'
 ---
 apiVersion: v1
 kind: Service
