@@ -8,5 +8,5 @@ RUN mvn install -DskipTests
 FROM openjdk:8
 WORKDIR /usr/src/app/
 COPY --from=BUILD_IMAGE /usr/src/app/target/book-work-0.0.1-SNAPSHOT.jar ./book-work-0.0.1-SNAPSHOT.jar
-EXPOSE 9000
+EXPOSE 8080
 CMD ["java","-jar","book-work-0.0.1-SNAPSHOT.jar"]
