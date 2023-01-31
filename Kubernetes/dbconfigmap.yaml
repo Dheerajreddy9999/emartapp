@@ -5,3 +5,4 @@ metadata:
 data:
   mysqldbname: books
   mongodbname: epoc
+  mongo_uri: mongodb://emongo:27017/epoc

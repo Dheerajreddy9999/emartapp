@@ -16,10 +16,14 @@ spec:
     spec:
       containers:
       - name: books
-        image: dheerajlearningdocker/emartapp-webapi:V1
+        image: dheerajlearningdocker/emartapp-webapi
         ports:
-        - containerPort: 8080
-
+        - containerPort: 9000
+        env:
+         - name: MONGOURI
+           value: 'mongodb://emongo:27017/epoc'
+         - name: SECRETORKEY
+           value: 'k1234e6s78h9av'
 ---
 apiVersion: v1
 kind: Service
@@ -29,6 +33,6 @@ spec:
   selector:
     app: books
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 9000
+    targetPort: 9000
   type: ClusterIP
